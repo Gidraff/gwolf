@@ -6,14 +6,21 @@ BINARY := gwolf
 BUILD_DIR := ./bin
 
 build: $(BUILD_DIR)
-		go build -o $(BUILD_DIR)/$(BINARY) main.go
-		@echo "Building $(BINARY) main.go"
+	go build -o $(BUILD_DIR)/$(BINARY) main.go
+	@echo "Building $(BINARY) main.go"
+
+run: $(BUILD_DIR)
+	$(BUILD_DIR)/$(BINARY)
 
 test:
-		go test -short ./...
-		@echo "Running Tests"
+	go test -short ./...
+	@echo "Running Tests"
+
+clean:
+	@echo "Cleaning"
+	rm -rf $(BUILD_DIR)
 
 $(BUILD_DIR):
 		@mkdir -p $@
 
-.PHONY: build
+.PHONY:
