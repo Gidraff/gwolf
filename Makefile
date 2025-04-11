@@ -5,6 +5,10 @@ ARCH := $(if $(GOARCH),$(GOARCH),$(shell go env GOARCH))
 BINARY := gwolf
 BUILD_DIR := ./bin
 
+env:
+	export DB_PASSWD=adminPass123
+	export DB_USER=local_user
+
 build: $(BUILD_DIR)
 	go build -o $(BUILD_DIR)/$(BINARY) main.go
 	@echo "Building $(BINARY) main.go"
