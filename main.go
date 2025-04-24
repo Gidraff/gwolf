@@ -154,27 +154,6 @@ func main() {
 		w.Write([]byte("welcome"))
 	})
 	r.Get("/logs", func(w http.ResponseWriter, r *http.Request) {
-
-		// claims, ok := r.Context().Value("user").(UserClaims)
-		// if !ok {
-		// 	http.Error(w, "Invalid user context", http.StatusInternalServerError)
-		// }
-		// // roles := claims["realm_access"].(map[string]interface{})["roles"].([]interface{})
-		// for _, role := range claims.RealmAccess.Roles {
-		// 	if role == "admin" {
-		// 		// fmt.Fprintln(w, "welcome admin!")
-		// 		// var wlogs []WorkoutLog
-		// 		wlogs, err := getWorkoutLogs()
-		// 		if err != nil {
-		// 			http.Error(w, "failed to get logs", http.StatusInternalServerError)
-		// 			return
-		// 		}
-		// 		w.Header().Set("Content-Type", "application/json")
-		// 		json.NewEncoder(w).Encode(wlogs)
-		// 		return
-		// 	}
-		// }
-		// http.Error(w, "Forbidden", http.StatusForbidden)
 		claims, ok := r.Context().Value("user").(UserClaims)
 		if !ok {
 			http.Error(w, "Invalid user context", http.StatusInternalServerError)
